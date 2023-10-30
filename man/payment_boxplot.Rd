@@ -2,7 +2,7 @@
 % Please edit documentation in R/payment_boxplot.R
 \name{payment_boxplot}
 \alias{payment_boxplot}
-\title{Boxplot of payments by DRG Code}
+\title{Make Boxplot of Payments by DRG Code}
 \usage{
 payment_boxplot(data, variable)
 }
