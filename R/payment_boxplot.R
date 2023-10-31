@@ -11,32 +11,25 @@
 #' @importFrom ggplot2 geom_boxplot
 #'
 #' @examples
-#' payment_boxplot(DRG_data, "Average.Total.Payments")
+#' payment_boxplot(DRG_data, "Average Total Payments")
 #'
 payment_boxplot <- function(data, variable){
-  # Inner helper function to format the labels by replacing dots with spaces
-  format_label <- function(label) {
-    # Replace (.) with spaces
-    label_without_underscore <- gsub("\\.", " ", label)
-    # Return the formatted label
-    return(label_without_underscore)
-  }
 
   # Check if the input variable is one of the payment variables
-  if (variable %in% c("Average.Covered.Charges",
-                      "Average.Total.Payments",
-                      "Average.Medicare.Payments")) {
+  if (variable %in% c("Average Covered Charges",
+                      "Average Total Payments",
+                      "Average Medicare Payments")) {
 
     # Make a boxplot using ggplot2
     drg_plot <- ggplot(data,
-                       mapping = aes(x = DRG.Definition, y = .data[[variable]])
+                       mapping = aes(x = `DRG Definition`, y = .data[[variable]])
     ) +
       geom_boxplot() +
 
       # Define labels for the axes and title using the format_label function
-      labs(x = paste(format_label("DRG.Definition")),
-           y = paste(format_label(variable)),
-           title = paste("Boxplot of", format_label(variable), "by DRG Code")
+      labs(x = paste("DRG Definition"),
+           y = paste(variable),
+           title = paste("Boxplot of", variable, "by DRG Code")
       ) +
 
       # Adjust x-axis text size, angle, and justification
