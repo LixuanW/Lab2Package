@@ -16,6 +16,6 @@ boxplot of \code{variable} based on the dataset \code{data}
 This function creates ggplot boxplot of \code{variable} based on the dataset \code{data}
 }
 \examples{
-payment_boxplot(DRG_data, "Average.Total.Payments")
+payment_boxplot(DRG_data, "Average Total Payments")
 
 }
