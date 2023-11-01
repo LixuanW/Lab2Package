@@ -1,27 +1,38 @@
 #' Calculate Statistics for Medicare Payments
 #'
+#' This function calculates \code{statistic} over all of the DRG codes for average Medicare payments
+#'
 #' @param data
 #' @param statistic
 #'
 #' @return
 #' @export
 #'
-#' @importFrom
+#' @importFrom magrittr %>%
 #'
 #' @examples
-calculate_statistics <- function(data, statistic) {
-  if (statistic == "mean") {
-    result <- data %>%
-      summarise(mean_medicare_payment = mean(Average.Medicare.Payments, na.rm = TRUE))
-  } else if (statistic == "median") {
-    result <- data %>%
-      summarise(median_medicare_payment = median(Average.Medicare.Payments, na.rm = TRUE))
-  } else if (statistic == "sd") {
-    result <- data %>%
-      summarise(sd_medicare_payment = sd(Average.Medicare.Payments, na.rm = TRUE))
+#' calculate_statistics(DRG_data, "mean")
+#' calculate_statistics(DRG_data, "median")
+#' calculate_statistics(DRG_data, "standard deviation")
+#'
+calculate_statistics <- function(data, statistics) {
+  if (statistics == "mean") {
+    i <- 2
+  } else if (statistics == "median") {
+    i <- 3
+  } else if (statistics == "standard deviation") {
+    i <- 4
   } else {
-    stop("Invalid statistic. Please choose 'mean', 'median', or 'sd'.")
+    stop("Invalid choice for 'statistics'. Choose from 'mean', 'median', or 'standard deviation'.")
   }
 
-  return(result)
+  # Calculate the mean, median, and standard deviation of each group
+  data <- data %>%
+    group_by(DRG.Definition) %>%
+    summarise(mean = mean(`Average Medicare Payments`),
+              median = median(`Average Medicare Payments`),
+              standard_deviation = sd(`Average Medicare Payments`, na.rm = TRUE))
+
+  # Return the statistics that we choose
+  return(data[, c(1, i)])
 }

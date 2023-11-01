@@ -4,11 +4,17 @@
 \alias{calculate_statistics}
 \title{Calculate Statistics for Medicare Payments}
 \usage{
-calculate_statistics(data, statistic)
+calculate_statistics(data, statistics)
 }
 \arguments{
 \item{statistic}{}
 }
 \description{
-Calculate Statistics for Medicare Payments
+This function calculates \code{statistic} over all of the DRG codes for average Medicare payments
+}
+\examples{
+calculate_statistics(DRG_data, "mean")
+calculate_statistics(DRG_data, "median")
+calculate_statistics(DRG_data, "standard deviation")
+
 }
