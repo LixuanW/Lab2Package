@@ -10,7 +10,7 @@
 #'
 #' @importFrom magrittr %>%
 #' @importFrom knitr kable
-#'
+#' @import dplyr
 #' @examples
 #' calculate_statistics(DRG_data, "mean")
 #' calculate_statistics(DRG_data, "median")
@@ -29,7 +29,7 @@ calculate_statistics <- function(data, statistics) {
 
   # Calculate the mean, median, and standard deviation of each group
   data <- data %>%
-    group_by(DRG.Definition) %>%
+    group_by(`DRG Definition`) %>%
     summarise(mean = mean(`Average Medicare Payments`),
               median = median(`Average Medicare Payments`),
               standard_deviation = sd(`Average Medicare Payments`, na.rm = TRUE))
