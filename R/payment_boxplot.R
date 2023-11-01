@@ -1,8 +1,8 @@
 #' Make Boxplot of Payments by DRG Code
 #'
 #' This function creates ggplot boxplot of \code{variable} based on the dataset \code{data}
-#' @param data
-#' @param variable
+#' @param data a data frame
+#' @param variable a type of payment that the boxplot will build on
 #'
 #' @return boxplot of \code{variable} based on the dataset \code{data}
 #' @export

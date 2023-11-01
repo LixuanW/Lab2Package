@@ -7,7 +7,12 @@
 calculate_statistics(data, statistics)
 }
 \arguments{
-\item{statistic}{}
+\item{data}{a data frame}
+
+\item{statistic}{a type of statistic to calculate}
+}
+\value{
+a table shows \code{statistic} of average Medicare payments over all of the DRG codes
 }
 \description{
 This function calculates \code{statistic} over all of the DRG codes for average Medicare payments

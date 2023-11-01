@@ -2,10 +2,10 @@
 #'
 #' This function calculates \code{statistic} over all of the DRG codes for average Medicare payments
 #'
-#' @param data
-#' @param statistic
+#' @param data a data frame
+#' @param statistic a type of statistic to calculate
 #'
-#' @return
+#' @return a table shows \code{statistic} of average Medicare payments over all of the DRG codes
 #' @export
 #'
 #' @importFrom magrittr %>%
