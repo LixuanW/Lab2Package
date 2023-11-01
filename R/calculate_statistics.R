@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @importFrom magrittr %>%
+#' @importFrom knitr kable
 #'
 #' @examples
 #' calculate_statistics(DRG_data, "mean")
@@ -34,5 +35,6 @@ calculate_statistics <- function(data, statistics) {
               standard_deviation = sd(`Average Medicare Payments`, na.rm = TRUE))
 
   # Return the statistics that we choose
-  return(data[, c(1, i)])
+  table_result <- knitr::kable(data[, c(1, i)])
+  return(table_result)
 }
