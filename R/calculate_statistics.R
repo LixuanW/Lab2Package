@@ -3,7 +3,7 @@
 #' This function calculates \code{statistic} over all of the DRG codes for average Medicare payments
 #'
 #' @param data a data frame
-#' @param statistic a type of statistic to calculate
+#' @param statistic a type of statistic to calculate, including mean, median and standard deviation
 #'
 #' @return a table shows \code{statistic} of average Medicare payments over all of the DRG codes
 #' @export
@@ -12,9 +12,10 @@
 #' @importFrom knitr kable
 #' @import dplyr
 #' @examples
-#' calculate_statistics(DRG_data, "mean")
-#' calculate_statistics(DRG_data, "median")
-#' calculate_statistics(DRG_data, "standard deviation")
+#' drg_data <- read_csv("DRG_data.csv")
+#' calculate_statistics(drg_data, "mean")
+#' calculate_statistics(drg_data, "median")
+#' calculate_statistics(drg_data, "standard deviation")
 #'
 calculate_statistics <- function(data, statistics) {
   if (statistics == "mean") {

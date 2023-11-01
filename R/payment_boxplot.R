@@ -1,8 +1,8 @@
 #' Make Boxplot of Payments by DRG Code
 #'
-#' This function creates ggplot boxplot of \code{variable} based on the dataset \code{data}
-#' @param data a data frame
-#' @param variable a type of payment that the boxplot will build on
+#' This function creates ggplot boxplot of payments \code{variable} by DRG code in the dataset \code{data}
+#' @param data a dataframe
+#' @param variable one of three types of payments that the boxplot will build on
 #'
 #' @return boxplot of \code{variable} based on the dataset \code{data}
 #' @export
@@ -11,7 +11,8 @@
 #' @importFrom ggplot2 geom_boxplot
 #'
 #' @examples
-#' payment_boxplot(DRG_data, "Average Total Payments")
+#' drg_data <- read_csv("DRG_data.csv")
+#' payment_boxplot(drg_data, "Average Total Payments")
 #'
 payment_boxplot <- function(data, variable){
 

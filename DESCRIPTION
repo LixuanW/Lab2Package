@@ -4,7 +4,7 @@ Title: Data Science Lab2 Homework
 Version: 0.1.0
 Author: Hanbo Dong, Wenjie Zhang, Lixuan Wu
 Maintainer: Lixuan Wu <liw4007@med.cornell.edu>
-Description: a package to create boxplot and calculate statistics for a data set.
+Description: a package to create boxplot and calculate statistics for payment data by DRG code.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
